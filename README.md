@@ -9,13 +9,7 @@ Coming Soon
 ![screenshot](https://i.imgur.com/mRgaSJA.png)
 
 ### Features
-- Accounts (bank / black money). You can add further accounts
-- Advanced inventory system (press `F2` ingame)
-- Job system
-- Loadouts and position synced in database
-- The best framework out there for RP servers
-- i18n (locale) system
-- Plenty of plugins available
+Coming soon
 
 ### Requirements
 This order also applies in the startup order.
