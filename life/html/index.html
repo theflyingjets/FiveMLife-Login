@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/materialize.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body id="wrapper">
+  <!-- Page render -->
+<div class="CV_PageWrapper">
+  <!-- Header -->
+  <div class="CV_PageHeader ">
+    <a class="#Holder">
+      <img class="Logo" src="assets/images/Logo.png" alt="California Department of Revenue Division of Motor Vehicles logo">
+    </a>
+  </div>
+  <!-- Content -->
+  <div class="CV_ContentWrapper">
+      <section class="section">
+          <div class="module">
+            <form class="form material-form">
+              <!-- First Name -->
+              <div class="input-field">
+                <label for="firstname">1. First Name</label>
+                <input id="firstname" name="firstname" placeholder="John " type="text" required>
+              </div>
+              <!-- Last Name -->
+              <div class="input-field">
+                <label for="lastname">2. Last Name</label>
+                <input id="lastname" name="lastname" placeholder = "Doe" type="text" required>
+              </div>
+              <!-- Height -->
+              <div class="input-field">
+                <label for="height">3. Height (CM)</label>
+                <input id="height" placeholder="170" type="text" maxlength="3" minlength="2" required>
+              </div>
+              <!-- Date of Birth -->
+              <div class="input-field">
+                <label for="dateofbirth">4. Date of Birth (YYYY-MM-DD)</label>
+                <input id="dateofbirth" placeholder="" type="text" class="datepicker" required>
+              </div>
+              <!-- Sex -->
+              <div class="input-field" id="sex">
+                <select data-beloworigin="true" required>
+                  <option value="none" disabled selected>none</option>
+                  <option value="M">Male</option>
+                  <option value="F">Female</option>
+                </select>
+                <label>5. Sex</label>
+              </div>
+              <!-- Register button -->
+              <input id="register" type="button" value="Register" class="btn square-button material-btn" />
+            </form>
+          </div>
+        </section>
+</div>
+<script src="assets/js/jquery.js" type="text/javascript"></script>
+<script src="assets/js/materialize.js" type="text/javascript"></script>
+<script src="assets/js/init.js" type="text/javascript"></script>
+</body>
+</html>
