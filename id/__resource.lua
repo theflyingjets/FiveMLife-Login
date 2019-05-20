@@ -1,24 +1,22 @@
-ui_page 'interface/index.html'
+description 'ID'
 
-client_scripts {
-    "client/id-c.lua",
-    "client/functions.lua"
+resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
+
+ui_page 'html/index.html'
+
+client_script {
+    'client/mainC.lua'
 }
 
-server_script {
-    "id-s.lua"
+
+server_scripts {
+    "server/mainS.lua",
+    "@mysql-async/lib/MySQL.lua"
 }
 
-files (
-    'interface/index.html',
-    'interface/listener.js',
-    'interface/loader.js',
-    -- 'interface/assert/images/',
-    'interface/assert/libraries/axios.min.js',
-    'interface/assert/libraries/vue.min.js',
-    'interface/assert/libraries/vuetify.min.css',
-    'interface/assert/libraries/vuetify.min.js',
-    -- 'interface/assert/sounds/',
-    'interface/pages/character.html',
-    'interface/scripts/character,js'
-)
+files {
+    "html/index.html",
+    "html/style.css",
+    "html/reset.css",
+    "html/listener.js"
+}
