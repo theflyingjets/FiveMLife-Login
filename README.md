@@ -1,8 +1,8 @@
 # FiveMLife
-FiveMLife is a roleplay framework for FiveM. It is developed for fun as a side project. If you would like to just GIT clone and contact me. 
+FiveM Life is an open source role play mode for Five M. The development is in the experimental/development stage. The project is open source, that means you can help to develop the mode and add features. We search for Developer, Translator, and Tester. We want to make like what Tonic have done with Altis Life, a mode where people add features and help to make it better.
 
-### Links & Read more
-Coming Soon
+### Part
+Login
 
 ### Screenshot preview (todo)
 
