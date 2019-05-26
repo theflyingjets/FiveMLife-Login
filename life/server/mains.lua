@@ -14,7 +14,7 @@ AddEventHandler("life:checkPlayerData", function()
         else
             local foundUser = results[1]
             GetPlayerData(src, foundUser, function()
-                -- Player Spawned [You don't need this callback if you are doing nothing after it triggers spawn event]
+                print('A player has came back')
             end)
         end
     end)
@@ -52,7 +52,6 @@ end
 RegisterServerEvent("life:CreateCharacter")
 AddEventHandler("life:CreateCharacter",function(data, id)
     playerId = PlayerIdentifier("license", source)
-    -- print(data.height) need to add height when I feel like it
     MySQL.Async.execute('INSERT INTO playername (id, firstName, lastName) VALUES (@identifier, @firstname, @lastname)',
     {
       ['@identifier']   = playerId,
@@ -60,8 +59,6 @@ AddEventHandler("life:CreateCharacter",function(data, id)
       ['@lastname']     = data.lastname
     },
     function( result )
-      -- Done
-    --   cb(true)
     end)
     MySQL.Async.execute('INSERT INTO playersexndob (id, sex, dob) VALUES (@identifier, @sex, @dateofbirth)',
     {
@@ -70,8 +67,13 @@ AddEventHandler("life:CreateCharacter",function(data, id)
       ['@dateofbirth']     = data.dateofbirth
     },
     function( result )
-      -- Done
-    --   cb(true)
+    end)
+    MySQL.Async.execute('INSERT INTO height (id, height) VALUES (@identifier, @height)',
+    {
+      ['@identifier']   = playerId,
+      ['@height']    = data.height
+    },
+    function( result )
     end)
     GetPlayerData(source)
 end)
