@@ -1,3 +1,7 @@
+RegisterCommand("debug1", function()
+    TriggerEvent('playerSpawned')
+end)
+
 AddEventHandler('playerSpawned', function(spawn)
     TriggerEvent('life:SpawnFreeze')
     TriggerServerEvent('life:checkPlayerData')
@@ -40,8 +44,7 @@ AddEventHandler('life:closeUI', function()
         action = "close"
     })
   end)
-
   RegisterNUICallback('create', function(data, cb)
     TriggerServerEvent("life:CreateCharacter", data)
-    cb('ok')
+    TriggerServerEvent("life:CreateCharacterUID", data)
 end)

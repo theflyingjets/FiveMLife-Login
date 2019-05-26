@@ -1,3 +1,5 @@
+startMoney = 10000
+
 RegisterNetEvent("life:checkPlayerData")
 AddEventHandler("life:checkPlayerData", function()
     local src = source
@@ -10,11 +12,11 @@ AddEventHandler("life:checkPlayerData", function()
         if #results == 0 then
             CreatePlayerData(src, function()
                 TriggerClientEvent("life:openUI", src)
+                checkPlayerUID()
             end)
         else
             local foundUser = results[1]
             GetPlayerData(src, foundUser, function()
-                print('A player has came back')
             end)
         end
     end)
@@ -47,7 +49,19 @@ function PlayerIdentifier(type, id)
         end
     end
     return false
-end
+    end
+
+    function checkPlayerUID()
+        rando = math.random (100000000, 999999999)
+        MySQL.Async.fetchAll("SELECT * FROM `height` WHERE `UID` = @UID", {
+            UID = rando
+        }, function(results)
+            if #results == 0 then
+            else
+                rando = math.random (100000000, 999999999)
+            end
+        end)
+    end
 
 RegisterServerEvent("life:CreateCharacter")
 AddEventHandler("life:CreateCharacter",function(data, id)
@@ -68,12 +82,26 @@ AddEventHandler("life:CreateCharacter",function(data, id)
     },
     function( result )
     end)
-    MySQL.Async.execute('INSERT INTO height (id, height) VALUES (@identifier, @height)',
-    {
-      ['@identifier']   = playerId,
-      ['@height']    = data.height
-    },
-    function( result )
-    end)
     GetPlayerData(source)
+end)
+
+RegisterServerEvent("life:CreateCharacterUID")
+AddEventHandler("life:CreateCharacterUID",function(data, id)
+playerId = PlayerIdentifier("license", source)
+MySQL.Async.execute('INSERT INTO height (id, height, UID) VALUES (@identifier, @height, @UID)',
+{
+  ['@identifier']   = playerId,
+  ['@height']    = data.height,
+  ['@UID']    = rando
+},
+function( result )
+end)
+MySQL.Async.execute('INSERT INTO playerbank (id, balance, accountNumber) VALUES (@identifier, @balance, @accountNumber)',
+{
+  ['@identifier']   = playerId,
+  ['@balance']    = startMoney,
+  ['@accountNumber']    = rando
+},
+function( result )
+end)
 end)
