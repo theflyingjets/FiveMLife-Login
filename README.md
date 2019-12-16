@@ -4,7 +4,7 @@ FiveM Life is an open source role play mode for Five M. The development is in th
 ### Part
 Login
 
-### Screenshot preview (todo)
+### Screenshot preview
 
 ![screenshot](https://i.imgur.com/mRgaSJA.png)
 
